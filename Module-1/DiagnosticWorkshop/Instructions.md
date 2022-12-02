@@ -33,5 +33,5 @@ Suggested Dimensions:
 ![icons](./pictures/icons.png)
 
  ### Final Product
-![icons](./pictures/finalProduct.png)
+![final](./pictures/finalProduct.png)
 
