@@ -26,3 +26,15 @@ Como buenos desarrolladores siempre nos preocupamos por implementar buenas prác
 Asegurate de indentar correctamente el código.
 Utiliza etiquetas semánticas siempre que sea posible (header, main, section, sidebar, footer, etc.).
 Asegurate de mantener un código css lógico y ordenado.
+
+
+### Expected results
+
+#### Layout 1
+![layout1](./images/layout_1.jpeg)
+
+#### Layout 2
+![final](./images/layout_2.png)
+
+#### Layout 3
+![final](./images/layout_3.png)
