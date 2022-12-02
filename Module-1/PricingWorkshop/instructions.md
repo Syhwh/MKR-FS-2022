@@ -3,7 +3,7 @@
 ## Main goal:
 The main objective of the activity is to implement the proposed design.
 
-You can download the assets here
+
 
  #### Styles - Fonts
 
