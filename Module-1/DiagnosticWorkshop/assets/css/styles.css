@@ -39,7 +39,7 @@ body {
   box-shadow: var(--shadow-card);
   border-radius: 12px;
   text-align: center;
-  margin: calc(var(--imageSize) / 3 + 24px) auto;
+  /* margin: calc(var(--imageSize) / 3 + 24px) auto; */
   padding: 0 24px 24px;
 }
 
@@ -126,7 +126,6 @@ body {
 
 .social__text {
   color: var(--secondary-clr-light);
-  margin-top: 0;
   font-size: 12px;
 }
 .social__icon:hover {
@@ -137,13 +136,13 @@ body {
 .button {
   padding: 12px 24px;
   border-radius: 4px;
-  text-decoration: none;
-  border: 1px solid var(--primary-clr);
   font-size: 1rem;
   cursor: pointer;
+  border: 1px solid var(--primary-clr);
   background: var(--primary-clr);
   color: var(--contrast-clr);
 }
+
 .button--secondary {
   background: var(--primary-contrast);
   color: var(--primary-clr);
