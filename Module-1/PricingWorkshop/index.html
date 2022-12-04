@@ -7,101 +7,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Pricing</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
-  <section>
-    <div>
+  <section class="pricing">
+    <div class="container">
       <h2>Simple Pricing</h2>
-
-      <div>
-        <div>
-          <h3>Basic</h3>
-          <p>$29<span>/month</span></p>
-          <div>
-            <ul>
-              <li><i class="fa fa-check"></i> <strong>1</strong> user request</li>
-              <li><i class="fa fa-check"></i> <strong>Email</strong> support</li>
-              <li><i class="fa fa-check"></i> <strong>10</strong> accounts</li>
-              <li>
+      <div class="pricing__grid">
+        <div class="card">
+          <h3 class="card__title">Basic</h3>
+          <p class="card__price">$29<span>/month</span></p>
+          <div class="card__body">
+            <ul class="content__list">
+              <li class="content__item"><i class="fa fa-check"></i> <strong>1</strong> user request</li>
+              <li class="content__item"><i class="fa fa-check"></i> <strong>Email</strong> support</li>
+              <li class="content__item"><i class="fa fa-check"></i> <strong>10</strong> accounts</li>
+              <li class="content__item content__item--red">
                 <i class="far fa-times"></i>
                 <strong>Free</strong> design professional accounts
               </li>
-              <li>
+              <li class="content__item--red">
                 <i class="far fa-times"></i>
                 <strong>Unlimited</strong> deployment
               </li>
             </ul>
-            <a href="#">get started</a>
+            <a href="#" class="button button--card">get started</a>
           </div>
         </div>
 
-        <div>
-          <span>Popular</span>
-          <h3>Best Value</h3>
-          <p>$49<span>/month</span></p>
-          <div>
-            <ul>
-              <li>
+        <div class="card card--important">
+          <span class="card__tag">Popular</span>
+          <h3 class="card__title">Best Value</h3>
+          <p class="card__price">$49<span>/month</span></p>
+          <div class="card__body">
+            <ul class="content__list">
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>10</strong> user request
 
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>27/7</strong> customer support
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>100</strong> accounts
               </li>
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>Free</strong> design professional accounts
               </li>
-              <li>
+              <li class="content__item--red">
                 <i class="far fa-times"></i>
                 <strong>Unlimited</strong> deployment
               </li>
             </ul>
-            <a href="#">get started</a>
+            <a href="#" class="button button--secondary button--card">get started</a>
           </div>
         </div>
 
-        <div>
-          <h3>Super</h3>
-          <p>$109<span>/month</span></p>
-          <div>
-            <ul>
-
-              <li>
+        <div class="card">
+          <h3 class="card__title">Super</h3>
+          <p class="card__price">$109<span>/month</span></p>
+          <div class="card__body">
+            <ul class="content__list">
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>Unlimited</strong> user requests
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>24/7</strong> customer support
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>Unlimited</strong> accounts
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>Free</strong> design professional accounts
               </li>
-              <li>
+              <li class="content__item">
                 <i class="fa fa-check"></i>
                 <strong>Unlimited</strong> deployment
               </li>
             </ul>
-            <a href="#">get started</a>
+            <a href="#" class="button button--card">get started</a>
           </div>
         </div>
       </div>
-
     </div>
-
   </section>
 </body>
 
