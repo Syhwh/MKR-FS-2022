@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: gray;
+}
+
+.extra {
+  border: 1px solid rgb(0, 0, 0);
+  background-color: gray;
+  padding: 1rem;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+.header__brand {
+  background-color: rgb(186, 186, 186);
+  border: 1px dashed black;
+  width: 2.5rem;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.header__tools {
+  background-color: rgb(186, 186, 186);
+  border: 1px dashed black;
+  width: 2rem;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.nav {
+  background-color: rgb(186, 186, 186);
+  flex-grow: 3;
+  padding: 1rem;
+  border: 1px dashed rgb(184, 71, 71);
+}
+
+.container {
+  border: 1px solid red;
+  display: flex;
+  text-align: center;
+}
+
+.hero {
+  border: 1px darkblue;
+  background-color: gray;
+  flex-grow: 2;
+  display: flex;
+  height: 5rem;
+  gap: 5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.hero__feature {
+  border: 1px solid darkblue;
+  background-color: rgb(186, 186, 186);
+  padding: 1rem;
+  min-width: 50rem;
+}
+.hero__action {
+  border: 1px solid darkblue;
+  background-color: rgb(186, 186, 186);
+  padding: 1rem;
+}
+
+.ads {
+  min-width: 18rem;
+  background-color: rgb(186, 186, 186);
+  flex-grow: 1;
+}
+
+.main__container {
+  display: flex;
+  min-height: 55vh;
+  gap: 1rem;
+  border: 1px solid black;
+}
+
+.sidebar {
+  order: 2;
+  flex: 1;
+  padding: 1rem;
+  background-color: rgb(186, 186, 186);
+}
+
+.main {
+  min-width: 67rem;
+  order: 1;
+  flex: 2;
+  padding: 1rem;
+  background-color: gray;
+}
+.main__content {
+  display: flex;
+  gap: 1rem;
+}
+.main__content article {
+  background-color: rgb(186, 186, 186);
+  min-height: 20em;
+  padding: 1rem;
+}
+.main__content article:first-of-type {
+  border: 1px solid green;
+  /* min-width: 80%; */
+}
+.main__content article:last-of-type {
+  flex: 2;
+  /* min-width: 50%; */
+}
+
+footer {
+  background-color: rgb(186 186 186);
+  min-height: 3rem;
+}
+
+.content_full{
+  background-color: gray;
+}

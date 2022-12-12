@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,600,800');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,600,800");
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-  --ff: 'Fira Sans', sans-serif;
+  --ff: "Fira Sans", sans-serif;
 
   --fw-n: 300;
   --fw-m: 600;
@@ -27,7 +29,14 @@
   --br: 5px;
 }
 
-body {
+/* @media screen and (max-width: 600px) {
+  .container {
+    background-color: green;
+    width: 100%;
+  }
+} */
+
+/* body {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -35,6 +44,9 @@ body {
   font-family: var(--ff);
   background-color: #f4f0f3;
 }
+
+
+
 
 h2 {
   font-size: var(--fs-2);
@@ -48,22 +60,9 @@ p {
 
 strong {
   font-weight: var(--fw-m);
-}
+} */
 
-.button {
-  display: inline-block;
-  border: 1px solid var(--secondary-clr);
-  color: var(--secondary-clr-light);
-  text-decoration: none;
-  padding: 1em 1.5em;
-  border-radius: var(--br);
-  font-weight: var(--fw-b);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-}
-
-.button:hover {
+/* .button:hover {
   color: white;
   background: #24244c;
 }
@@ -88,20 +87,46 @@ strong {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+} */
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .pricing__grid {
+  /* display: flex;
+  flex-direction: column; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: var(--spacer-md);
+  /* grid-column-gap: var(--spacer-md); */
+}
+
+.pricing__grid {
+  padding: 0 0.5rem;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--secondary-clr);
+  color: var(--secondary-clr-light);
+  text-decoration: none;
+  padding: 1em 1.5em;
+  border-radius: var(--br);
+  font-weight: var(--fw-b);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
 }
 
 .card {
+  margin-right: 1rem;
   border-radius: var(--br);
   overflow: hidden;
   box-shadow: var(--shadow);
   position: relative;
   background-color: #fff;
+  margin-bottom: var(--spacer-md);
 }
 
 .card--important {
@@ -168,4 +193,15 @@ strong {
   top: 22px;
   left: -30px;
   transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    background-color: green;
+    width: 100%;
+  }
+  .pricing__grid {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
