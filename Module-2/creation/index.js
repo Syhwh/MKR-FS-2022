@@ -14,7 +14,7 @@ button.addEventListener('click', () => {
   input.value = ''
 
 })
-
+const date = Date.now();
 
 // event delegation
 
