@@ -6,10 +6,11 @@
 
 :root {
   --white: #fafafb;
-  --purple: #9a67ea;
+  --green-light: #76e34e;
   --blue-light: #81c2ff;
   --blue-dark: #0276e2;
   --green: #2c7b90;
+  --gray: #ccc;
 }
 
 body {
@@ -62,19 +63,17 @@ body {
 }
 .add-task input::placeholder {
   font-size: 1.1rem;
-  color: var(--purple);
+  color: var(--gray);
 }
 
 .add-task i {
   font-size: 50px;
-  color: var(--purple);
+  color: var(--green-light);
 }
 .add-task i:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
-
-/*SECCION DE TAREA */
 
 .task h3 {
   color: var(--white);
