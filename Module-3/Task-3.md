@@ -12,7 +12,7 @@ Create a folder called task-3
    - Ford
    - Romeo
    - Mac
-   - Lamborguini
+   - Lamborghini
 3. Return a list of items, showing each one of the brands + the number of available units. The number of available units is equal to the number of letters of the brand plus the index in the array. ie Mazda = 5 letters + index 0 = 5 units available
 
 - For the return you need to use the map function and return an <li> element
