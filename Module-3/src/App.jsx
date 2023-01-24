@@ -11,6 +11,7 @@ function App() {
         {/* <Counter /> */}
         {/* <MyText /> */}
         <MyList />
+        learn react
       </header>
     </div>
   );

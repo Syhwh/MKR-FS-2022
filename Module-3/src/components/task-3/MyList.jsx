@@ -17,7 +17,7 @@ export const MyList = () => {
       {
         carBrands.map((brand, index) => {
           return (
-            <li key={index} >{brand} - Available Units:xxx</li>
+            <li data-testid='list' key={index} >{brand} - Available Units:xxx</li>
           )
         })
       }
