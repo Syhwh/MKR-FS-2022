@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './MyList.module.css';
 
 export const MyList = () => {
   const carBrands = ['Mazda',
@@ -17,7 +17,7 @@ export const MyList = () => {
       {
         carBrands.map((brand, index) => {
           return (
-            <li data-testid='list' key={index} >{brand} - Available Units:xxx</li>
+            <li className={index%2===0?styles.text:styles.odd } data-testid='list' key={index} >{brand} - Available Units:xxx</li>
           )
         })
       }
