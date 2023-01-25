@@ -1,7 +1,7 @@
 import logo from './logo.svg';
-import { Counter } from './components/task-1/Counter';
-import { MyText } from './components/task-2/MyText';
-import { MyList } from './components/task-3/MyList';
+import { Counter } from './Old_tasks/task-1/Counter';
+import { MyText } from './Old_tasks/task-2/MyText';
+import { MyList } from './Old_tasks/task-3/MyList';
 import './App.css';
 
 function App() {
