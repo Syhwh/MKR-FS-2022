@@ -5,8 +5,8 @@ export const Button = ({ onClick, text }) => {
   return (
     // <button onClick={onClick}>{text}</button>
     <ButtonStyled onClick={onClick}>{text}</ButtonStyled>
-  )
-}
+  );
+};
 
 const ButtonStyled = styled.button`
   background: transparent;
@@ -17,6 +17,6 @@ const ButtonStyled = styled.button`
   padding: 0.25em 1em;
   cursor: pointer;
   &:hover {
-    color: red; 
-  };
-`
+    color: red;
+  }
+`;

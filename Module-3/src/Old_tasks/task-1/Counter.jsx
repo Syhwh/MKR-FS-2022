@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { TextDisplay } from './TextDisplay';
@@ -14,8 +13,6 @@ export const Counter = () => {
       <Button onClick={handleIncrement} text={'increment'} />
       <TextDisplay text={state} />
       <Button onClick={handleDecrement} text={'decrement'} />
-  
     </>
   );
 };
-

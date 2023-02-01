@@ -1,7 +1,8 @@
 import styles from './MyList.module.css';
 
 export const MyList = () => {
-  const carBrands = ['Mazda',
+  const carBrands = [
+    'Mazda',
     'Toyota',
     'Chevrolet',
     'Nissan',
@@ -11,16 +12,21 @@ export const MyList = () => {
     'Ford',
     'Romeo',
     'Mac',
-    'Lamborghini']
+    'Lamborghini'
+  ];
   return (
     <ul>
-      {
-        carBrands.map((brand, index) => {
-          return (
-            <li className={index%2===0?styles.text:styles.odd } data-testid='list' key={index} >{brand} - Available Units:xxx</li>
-          )
-        })
-      }
+      {carBrands.map((brand, index) => {
+        return (
+          <li
+            className={index % 2 === 0 ? styles.text : styles.odd}
+            data-testid="list"
+            key={index}
+          >
+            {brand} - Available Units:xxx
+          </li>
+        );
+      })}
     </ul>
-  )
-}
+  );
+};

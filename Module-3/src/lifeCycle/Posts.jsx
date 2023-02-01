@@ -17,11 +17,13 @@ export const Posts = ({ name, date }) => {
 
   useEffect(() => {
     const handleRequest = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await response.json();
-        setPosts(data);
-         console.log({ data });
-         console.log('useEffect');
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts'
+      );
+      const data = await response.json();
+      setPosts(data);
+      console.log({ data });
+      console.log('useEffect');
     };
     handleRequest();
     return () => {
