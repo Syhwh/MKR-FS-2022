@@ -1,5 +1,11 @@
 import React from 'react';
+import { Login } from '../components/Auth/Login';
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      HOME
+      <Login />
+    </>
+  );
 };
