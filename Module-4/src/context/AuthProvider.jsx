@@ -1,12 +1,27 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import React, { useState } from 'react';
+
+import { useLocalStorage } from '../components/Hooks/useLocalstorage';
+import { validateUser } from '../components/utils/validateUser';
 import { AuthContext } from './AuthContext';
 
 export const AuthProvider = ({ children }) => {
-  const [logged, setLogged] = useState(false);
+  const [user, setUser] = useLocalStorage('user', false);
+
+  const handleLogin = ({ email, password }) => {
+    //  set to backend api
+    const isValidUser = validateUser({
+      email,
+      password
+    });
+    setUser(isValidUser);
+  };
+
+  const handleLogout = () => {
+    setUser(false);
+  };
 
   return (
-    <AuthContext.Provider value={{ logged, setLogged }}>
+    <AuthContext.Provider value={{ user, handleLogin, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

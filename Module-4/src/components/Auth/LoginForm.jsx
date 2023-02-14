@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
-import { validateUser } from '../utils/validateUser';
+import { useAuth } from '../Hooks/useAuth';
 
 export const LoginForm = () => {
-  const { setLogged } = useContext(AuthContext);
+  const { isAuthenticated, setAuthenticated } = useAuth();
 
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const isValidUser = validateUser({
+    setAuthenticated({
       email: event.target.email.value,
       password: event.target.password.value
     });
-    setLogged(isValidUser);
-    navigate('/tasks');
+    console.log({ isAuthenticated });
+    if (isAuthenticated) {
+      navigate('/tasks');
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 export const TaskItem = ({ task }) => {
   return (
@@ -9,7 +9,7 @@ export const TaskItem = ({ task }) => {
       <Card.Body>
         <Card.Title>{task.title}</Card.Title>
         <Card.Text>{task.description}</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Link to={`${task.id}`}>Read more {task.id}</Link>
       </Card.Body>
     </Card>
   );
