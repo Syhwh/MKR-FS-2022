@@ -12,10 +12,11 @@ const createTask = async (req, res) => {
         });
     }
     //
+    const { title, description } = req.body;
     // create a new task
     const task = {
-
-        description: req.body.description,
+        title,
+        description,
     };
     // save task to the database
     try {
@@ -45,7 +46,7 @@ const getTask = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: err.message });
     }
- };
+};
 
 const deleteTask = async (req, res) => { };
 const updateTask = async (req, res) => { };
