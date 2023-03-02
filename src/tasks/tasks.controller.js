@@ -2,38 +2,33 @@
 const tasks = [];
 
 const Task = require('./models');
+const tasksService = require('./task.services');
 
 
 const createTask = async (req, res) => {
-    // validate request body
-    if (!req.body) {
-        return res.status(400).send({
-            message: "Task content can not be empty",
-        });
-    }
-    //
-    const { title, description } = req.body;
+
+    const { title, description,project } = req.body;
     // create a new task
     const task = {
         title,
         description,
+        project
     };
-    // save task to the database
     try {
-
-        const taskSaved = await Task.create(task);
-        res.status(201).json(taskSaved);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-
+        const newTask = await tasksService.createTask(task);
+        res.status(201).json(newTask);
+    } catch (error) {
+        throw new Error(error);
     }
+
 };
 
 const getTasks = async (req, res) => {
     try {
-        const tasks = await Task.find({})
+        const tasks = await Task.find().populate('project')
         res.status(200).json(tasks)
     } catch (error) {
+        console.log(error.message);
         res.status(500).json({ message: err.message });
     }
 

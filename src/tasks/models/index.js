@@ -20,9 +20,10 @@ const taskSchema = new mongoose.Schema({
         type: Date,
         default: Date.now(),
     },
-    // projectRef:{
-    //     type: mongoose.Schema.Types.ObjectId,
-    // },
+    project:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project',
+    },
 });
 
 const TaskModel= mongoose.model('Task', taskSchema);
