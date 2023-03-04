@@ -38,4 +38,4 @@ const updateTask = async (id, task) => {
 
 };
 
-module.exports = { createTask };
+module.exports = { createTask, getTasks, getTaskById, deleteTask, updateTask };

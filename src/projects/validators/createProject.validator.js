@@ -1,5 +1,5 @@
 const Joi = require("joi");
-Joi.objectId = require('joi-objectid')(Joi)
+// Joi.objectId = require('joi-objectid')(Joi)
 
 const schema = Joi.object({
     title: Joi.string()
@@ -7,15 +7,15 @@ const schema = Joi.object({
         .max(30)
         .required(),
     description: Joi.string().required(),
-    project: Joi.objectId().required(),
+    // project: Joi.objectId().required(),
 });
 
-const createTaskValidator = (req, res, next) => {
+const createProjectValidator = (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
-       next(error);
+        return next(error);
     }
     next();
 };
 
-module.exports = { createTaskValidator }
+module.exports = { createProjectValidator }

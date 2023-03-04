@@ -1,25 +1,21 @@
-const mongoose = require('mongoose');
-const Project = require("./models");
+const projectService = require('./projects.services');
+const logger = require('../global/logger');
 
 
-const createProject = async (req, res) => {
-    const { title, description } = req.body;
-    const project = {
-        title,
-        description,
-    }
+const createProject = async (req, res, next) => {
+    const { title2, description2 } = req.body;
     try {
-        const newProject =  new Project(project);
-        const projectSaved = await newProject.save();
-        res.status(201).json(projectSaved);
+        const { message, savedProject } = await projectService.createProject({ title, description });
+        logger.info('New project created');
+        res.status(200).json({ message, savedProject });
     } catch (error) {
-        throw new Error(error);
+        logger.error(error.message ,{ label: 'Create Project controller' });
+        next(error);
     }
 }
 const getProjects = async (req, res) => {
     try {
-        const projects = await Project.find({}).populate('tasks')
-
+        const projects = await projectService.find({})
         res.status(200).json(projects)
     } catch (error) {
         console.log(error.message);
@@ -30,9 +26,9 @@ const getProjectById = async (req, res, next) => {
     try {
         // const project = await Project.findById(req.params.id)
         const id = mongoose.Types.ObjectId(req.params.id);
-        const project = await Project.aggregate([
+        const project = await projectService.aggregate([
             {
-                $match: {_id: id}
+                $match: { _id: id }
             },
             {
                 $lookup: {
@@ -48,5 +44,7 @@ const getProjectById = async (req, res, next) => {
         res.status(500).json({ message: err.message });
     }
 }
+const deleteProject = async (req, res) => { }
+const updateProject = async (req, res) => { }
 
-module.exports = { createProject, getProjects, getProjectById, }
+module.exports = { createProject, getProjects, getProjectById, deleteProject, updateProject }
