@@ -1,52 +1,39 @@
 const mongoose = require('mongoose');
-const Project = require("./models");
+const userService  = require('./instances');
 
 
-const createProject = async (req, res) => {
-    const { title, description } = req.body;
-    const project = {
-        title,
-        description,
+const createUser = async (req, res) => {
+
+    const user = {
+        email: req.body.email,
+        password: req.body.password,
     }
+    console.log(user);
     try {
-        const newProject =  new Project(project);
-        const projectSaved = await newProject.save();
-        res.status(201).json(projectSaved);
+        const newUser = await userService.createUser(user);
+        console.log(newUser);
+        res.status(201).json(newUser);
     } catch (error) {
-        throw new Error(error);
+        throw new Error(error.message);
     }
 }
-const getProjects = async (req, res) => {
+const getAllUsers = async (req, res) => {
     try {
-        const projects = await Project.find({}).populate('tasks')
+        const users = await userService.getAllUsers();
 
-        res.status(200).json(projects)
+        res.status(200).json(users)
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: err.message });
     }
 }
-const getProjectById = async (req, res, next) => {
+const getUserById = async (req, res, next) => {
     try {
-        // const project = await Project.findById(req.params.id)
-        const id = mongoose.Types.ObjectId(req.params.id);
-        const project = await Project.aggregate([
-            {
-                $match: {_id: id}
-            },
-            {
-                $lookup: {
-                    from: 'tasks',
-                    localField: '_id',
-                    foreignField: 'project',
-                    as: 'tasks'
-                }
-            }
-        ])
-        res.status(200).json(project)
+        const user = await userService.getUserById(req.params.id);
+        res.status(200).json(user)
     } catch (error) {
         res.status(500).json({ message: err.message });
     }
 }
 
-module.exports = { createProject, getProjects, getProjectById, }
+module.exports = { createUser, getAllUsers, getUserById }
