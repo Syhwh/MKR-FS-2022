@@ -1,5 +1,5 @@
-const usersService = require('../users/users.service');
-const usersRepository = require('../users/users.repository');
+const usersService = require('./users.service');
+const usersRepository = require('./users.repository');
 const passWordService = require('../global/hashPassword');
 
 const userService = usersService(usersRepository, passWordService);

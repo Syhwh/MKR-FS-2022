@@ -2,7 +2,7 @@ const winston = require('winston');
 
 const { combine, timestamp, label, printf } = winston.format;
 
-const myFormat = printf(({ level, message,  timestamp, label }) => {
+const myFormat = printf(({ level, message, timestamp, label }) => {
   return `[${label}]: ${level}: ${message} - ${timestamp} `;
 });
 
@@ -24,8 +24,8 @@ const logger = winston.createLogger({
         // winston.format.simple(),
         timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         myFormat
-      )
-    })
+      ),
+    }),
   ],
 });
 
