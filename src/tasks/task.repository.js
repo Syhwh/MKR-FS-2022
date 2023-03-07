@@ -1,38 +1,36 @@
-const Task = require('./models');
-
-const createTask = async (task) => {
-  try {
-    const newTask = new Task(task);
-    return await newTask.save();
-  } catch (error) {
-    return error;
-  }
+const tasksRepository = (TaskModel) => {
+  return {
+    createTask: async (task) => {
+      try {
+        const newTask = new TaskModel(task);
+        return await newTask.save();
+      } catch (error) {
+        return error;
+      }
+    },
+    getTasks: async (filter = {}) => {
+      try {
+        return await TaskModel.find(filter);
+      } catch (error) {
+        return error;
+      }
+    },
+    getTaskById: async (id) => {
+      try {
+        return await TaskModel.findById(id);
+      } catch (error) {
+        return error;
+      }
+    },
+    deleteTask: async (id) => {
+      try {
+        return await TaskModel.findByIdAndDelete(id);
+      } catch (error) {
+        return error;
+      }
+    },
+    updateTask: async (id, task) => { },
+  };
 };
 
-const getTasks = async () => {
-  try {
-    return await Task.find({});
-  } catch (error) {
-    return error;
-  }
-};
-
-const getTaskById = async (id) => {
-  try {
-    return await Task.findById(id);
-  } catch (error) {
-    return error;
-  }
-};
-
-const deleteTask = async (id) => {
-  try {
-    return await Task.findByIdAndDelete(id);
-  } catch (error) {
-    return error;
-  }
-};
-
-const updateTask = async (id, task) => {};
-
-module.exports = { createTask, getTasks, getTaskById, deleteTask, updateTask };
+export default tasksRepository;

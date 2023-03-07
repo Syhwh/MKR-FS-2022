@@ -1,12 +1,14 @@
 {
-  "name": "MKR-FS-2022",
+  "name": "mkr-fs-2022",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com-personal:Syhwh/MKR-FS-2022.git",
   "author": "<shymmywgarcia@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node --experimental-specifier-resolution=node src/index",
+    "dev": "--experimental-specifier-resolution=nodemon --exec src/index.js",
     "test": "jest -i --colors --verbose --detectOpenHandles",
     "test:watch": "jest -i --watchAll",
     "coverage": "jest -i --coverage",
@@ -29,6 +31,9 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
     "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.7.0",
