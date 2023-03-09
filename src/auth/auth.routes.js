@@ -4,18 +4,21 @@ const router = express.Router();
 const userService = require('../users/instances');
 
 
-
 router.post('/login', async (req, res) => {
     console.log(req.body);
     const { email, password } = req.body;
     try {
-      const user =  await userService.getUser(email, password)
+      const token =  await userService.getUser(email, password)
 
-        res.status(200).json({ message: user ? user : 'Wrong credentials' });
+        res.status(200).json({ token: token ? token : 'Wrong credentials' });
     } catch (error) {
         console.log(error.message);
     }
 
+});
+
+
+router.post('/register', async (req, res) => {
 
 
 });

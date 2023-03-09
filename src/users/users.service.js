@@ -1,8 +1,7 @@
 const ServiceError = require("../global/errorHandling/serviceError/ServiceError");
 
-const jwt = require('jsonwebtoken');
 
-const usersService = (userRepository, passWordService) => {
+const usersService = (userRepository, passwordService, jwtService) => {
     return {
         getAllUsers: () => {
             try {
@@ -27,7 +26,7 @@ const usersService = (userRepository, passWordService) => {
                     throw new ServiceError("User already exist", 400, "usersService.createUser");
                 }
 
-                const hashedPassword = await passWordService.encryptPassword(password);
+                const hashedPassword = await passwordService.encryptPassword(password);
 
 
                 return await userRepository.create({ email, password: hashedPassword });
@@ -43,13 +42,13 @@ const usersService = (userRepository, passWordService) => {
                     return false
                 }
 
-                const isMatch = await passWordService.decryptPassword(password, user.password);;
+                const isMatch = await passwordService.decryptPassword(password, user.password);;
 
-                console.log(isMatch);
-                const token = jwt.sign({
-                    exp: Math.floor(Date.now() / 1000) + (60 * 60),
-                    userId: '123456'
-                }, 'mySecret', { algorithm: 'HS256' })
+                if (!isMatch) {
+                    return false
+                }
+
+                const token = jwtService.createAccessToken(user);
 
                 return token;
             } catch (error) {

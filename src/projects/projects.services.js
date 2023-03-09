@@ -15,8 +15,8 @@ const createProject = async (project) => {
     }
 };
 
-const getProjects = async () => {
-    return await projectRepository.getProjects();
+const getAllProjects = async () => {
+    return await projectRepository.getAllProjects();
 };
 
 const getProjectById = async (id) => {
@@ -31,4 +31,4 @@ const updateProject = async (id, project) => {
     return await projectRepository.updateProject(id, project);
 };
 
-module.exports = { createProject, getProjects, getProjectById, deleteProject, updateProject };
+module.exports = { createProject, getAllProjects, getProjectById, deleteProject, updateProject };

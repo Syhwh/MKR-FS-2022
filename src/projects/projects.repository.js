@@ -1,4 +1,5 @@
-const  Project  = require('./models');
+const Project = require('./models');
+const mongoose = require('mongoose');
 
 
 const createProject = async (project) => {
@@ -10,7 +11,7 @@ const createProject = async (project) => {
     }
 };
 
-const getProjects = async () => {
+const getAllProjects = async () => {
     try {
         return await Project.find({});
     } catch (error) {
@@ -20,7 +21,11 @@ const getProjects = async () => {
 
 const getProjectById = async (id) => {
     try {
-        return await Project.findById(id);
+        console.log(id);
+        const userId = mongoose.Types.ObjectId(id)
+        const projects = await Project.findById(userId);
+        console.log(projects);
+        return projects;
     } catch (error) {
         return error;
     }
@@ -39,9 +44,9 @@ const updateProject = async (id, Project) => {
     try {
         return await Project.findByIdAndUpdate(id, Project, { new: true })
     } catch (error) {
-        
+
     }
 
 };
 
-module.exports = { createProject, getProjects, getProjectById, deleteProject, updateProject };
+module.exports = { createProject, getAllProjects, getProjectById, deleteProject, updateProject };

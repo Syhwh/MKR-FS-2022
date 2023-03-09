@@ -3,19 +3,19 @@ const logger = require('../global/logger');
 
 
 const createProject = async (req, res, next) => {
-    const { title2, description2 } = req.body;
+    const { title, description } = req.body;
     try {
         const { message, savedProject } = await projectService.createProject({ title, description });
         logger.info('New project created');
         res.status(200).json({ message, savedProject });
     } catch (error) {
-        logger.error(error.message ,{ label: 'Create Project controller' });
+        logger.error(error.message, { label: 'Create Project controller' });
         next(error);
     }
 }
 const getProjects = async (req, res) => {
     try {
-        const projects = await projectService.find({})
+        const projects = await projectService.getAllProjects();
         res.status(200).json(projects)
     } catch (error) {
         console.log(error.message);
@@ -25,23 +25,24 @@ const getProjects = async (req, res) => {
 const getProjectById = async (req, res, next) => {
     try {
         // const project = await Project.findById(req.params.id)
-        const id = mongoose.Types.ObjectId(req.params.id);
-        const project = await projectService.aggregate([
-            {
-                $match: { _id: id }
-            },
-            {
-                $lookup: {
-                    from: 'tasks',
-                    localField: '_id',
-                    foreignField: 'project',
-                    as: 'tasks'
-                }
-            }
-        ])
+        const { id } = req.params;
+        // const project = await projectService.aggregate([
+        //     {
+        //         $match: { _id: id }
+        //     },
+        //     {
+        //         $lookup: {
+        //             from: 'tasks',
+        //             localField: '_id',
+        //             foreignField: 'project',
+        //             as: 'tasks'
+        //         }
+        //     }
+        // ])
+        const project = await projectService.getProjectById(id);
         res.status(200).json(project)
     } catch (error) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: error.message });
     }
 }
 const deleteProject = async (req, res) => { }

@@ -1,3 +1,4 @@
+const AppError = require("../AppError.js/AppError");
 const ServiceError = require("../serviceError/ServiceError");
 
 const errorHandler = (err, req, res, next) => {
@@ -7,8 +8,13 @@ const errorHandler = (err, req, res, next) => {
     }
 
     if (err instanceof ServiceError) {
+        return res.status(err.status).json({ status: err.status, type: err.scope, message: err.message });
+    }
+
+    if (err instanceof AppError) {
         return res.status(err.status).json({ status: err.status, type: err.type, message: err.message });
     }
+
 
     res.status(500).json({ message: err.message, err });
 };
