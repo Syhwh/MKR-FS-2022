@@ -6,7 +6,8 @@
   "author": "<shymmywgarcia@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
