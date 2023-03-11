@@ -2,9 +2,10 @@ const Project = require('./models');
 const mongoose = require('mongoose');
 
 
-const createProject = async (project) => {
+const createProject = async ({ title, description, userId }) => {
     try {
-        const newProject = new Project(project);
+        const author = mongoose.Types.ObjectId(userId)
+        const newProject = new Project({ title, description, author });
         return await newProject.save();
     } catch (error) {
         return error;

@@ -7,8 +7,8 @@ const errorHandler = require('../global/errorHandling/middleware/errorHandler');
 const app = express();
 
 // Global middlewares
-app.use(helmet());
-app.use(helmet.frameguard());
+// app.use(helmet());
+// app.use(helmet.frameguard());
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());

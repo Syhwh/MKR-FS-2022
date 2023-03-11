@@ -20,8 +20,10 @@ const projectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Task',
     }],
-    author:{
+    author: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true,
     },
 });
 

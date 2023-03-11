@@ -5,7 +5,8 @@ const logger = require('../global/logger');
 const createProject = async (req, res, next) => {
     const { title, description } = req.body;
     try {
-        const { message, savedProject } = await projectService.createProject({ title, description });
+        console.log(req.locals.userId);
+        const { message, savedProject } = await projectService.createProject({ title, description, userId: req.locals.userId });
         logger.info('New project created');
         res.status(200).json({ message, savedProject });
     } catch (error) {
