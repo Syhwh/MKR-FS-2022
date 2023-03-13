@@ -8,7 +8,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
 
 export function Navbar({ brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
@@ -44,7 +44,7 @@ export function Navbar({ brandName, routes, action }) {
 
   return (
     <MTNavbar className="p-3">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      {/* <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link to="/">
           <Typography
             variant="small"
@@ -77,7 +77,7 @@ export function Navbar({ brandName, routes, action }) {
             className: "w-full block lg:hidden",
           })}
         </div>
-      </MobileNav>
+      </MobileNav> */}
     </MTNavbar>
   );
 }

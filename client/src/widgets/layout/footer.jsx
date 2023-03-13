@@ -14,11 +14,11 @@ export function Footer({ brandName, brandLink, routes }) {
           <a
             href={brandLink}
             target="_blank"
-            className="transition-colors hover:text-blue-500"
+            className="transition-colors hover:text-blue-500" rel="noreferrer"
           >
             {brandName}
           </a>{" "}
-          for a better web.
+          for learning purposes.
         </Typography>
         <ul className="flex items-center gap-4">
           {routes.map(({ name, path }) => (
@@ -41,13 +41,12 @@ export function Footer({ brandName, brandLink, routes }) {
 }
 
 Footer.defaultProps = {
-  brandName: "Creative Tim",
-  brandLink: "https://www.creative-tim.com",
+  brandName: "MKR",
+  brandLink: "#",
   routes: [
-    { name: "Creative Tim", path: "https://www.creative-tim.com" },
-    { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-    { name: "Blog", path: "https://www.creative-tim.com/blog" },
-    { name: "License", path: "https://www.creative-tim.com/license" },
+    { name: "My Company", path: "#" },
+    { name: "About Us", path: "#" },
+    { name: "Blog", path: "#" },
   ],
 };
 
