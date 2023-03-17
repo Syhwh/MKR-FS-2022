@@ -15,13 +15,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+
 app.use('/api', require('../tasks/tasks.routes'));
 app.use('/api', require('../projects/projects.routes'));
 app.use('/api', require('../users/users.routes'));
+app.use('/api', require('../files/files.routes'));
 app.use('/', require('../auth/auth.routes'))
 
+
+
 app.use('*', (req, res, next) => {
-    res.status(404).json({ message: 'Not found' });
+    res.status(400).json({ message: 'Not found' });
 });
 
 app.use(errorHandler);
