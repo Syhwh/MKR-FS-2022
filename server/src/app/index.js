@@ -20,6 +20,7 @@ app.use('/api', require('../tasks/tasks.routes'));
 app.use('/api', require('../projects/projects.routes'));
 app.use('/api', require('../users/users.routes'));
 app.use('/api', require('../files/files.routes'));
+app.use('/api', require('../payments/payments.routes'));
 app.use('/', require('../auth/auth.routes'))
 
 
