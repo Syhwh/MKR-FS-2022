@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardHeader,
@@ -8,9 +8,11 @@ import {
   Checkbox,
   Button,
   Typography,
-} from "@material-tailwind/react";
+} from '@material-tailwind/react';
+import { getGoogleURI } from '../../oauth/getGoogleURI';
 
 export function SignIn() {
+  console.log(getGoogleURI());
   return (
     <>
       <img
@@ -40,6 +42,9 @@ export function SignIn() {
             <Button variant="gradient" fullWidth>
               Sign In
             </Button>
+            <a href={getGoogleURI()}>
+              <Typography>Signing with google</Typography>
+            </a>
             <Typography variant="small" className="mt-6 flex justify-center">
               Don't have an account?
               <Link to="/auth/sign-up">

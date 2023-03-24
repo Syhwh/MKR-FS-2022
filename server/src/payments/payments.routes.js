@@ -38,6 +38,11 @@ router.post('/update', async (req, res) => {
 
 
 router.post('/checkout', async (req, res) => {
+
+
+
+
+  // paymentService.createPaymentIntent(req.body)
   const {line_items} = req.body;
   const session = await stripe.checkout.sessions.create({
     success_url: 'http://localhost:3000/success',
@@ -152,3 +157,47 @@ const product = [{
   updated: 1679097085,
   url: null
 }]
+
+
+const paymentService=(paymentRepository)=>{
+
+  const createCheckoutSession = async (line_items) => {
+    paymentRepository.createCheckoutSession(line_items)
+  }
+
+  const makepayment = async (paymentIntent) => {
+    paymentRepository.makePayment(paymentIntent)
+  }
+
+}
+
+// const strypeRepository = (stripe) => {
+//   const createCheckoutSession = async (line_items) => {
+//     const session = await stripe.checkout.sessions.create({
+//       success_url: 'http://localhost:3000/success',
+//       cancel_url: 'http://localhost:3000/cancel',
+//       line_items: [
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//         { price: 'price_1MmnCnCMKsOGPDDkygbZufrY', quantity: 10 },
+//       ],
+//       mode: 'payment',
+//       payment_method_types: ['card'],
+//     });
+//   }
+// }
+
+// const paypalRepository = (paypal) => {
+
+//   const createCheckoutSession = async (paymentIntent) => {
+//     paypal.payment.create(paymentIntent)
+//   }
+// }
+
+
+// paymentService(stripe).createCheckoutSession()
+
+// paymentService(paypal).createCheckoutSession()
