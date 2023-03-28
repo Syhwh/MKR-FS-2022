@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Card,
   CardHeader,
@@ -12,7 +12,11 @@ import {
 import { getGoogleURI } from '../../oauth/getGoogleURI';
 
 export function SignIn() {
+  const navigate = useNavigate();
   console.log(getGoogleURI());
+  const handleOnClick = () => {
+    navigate('/dashboard/profile');
+  };
   return (
     <>
       <img
@@ -32,14 +36,19 @@ export function SignIn() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input name="email" type="email" label="Email" size="lg" />
+            <Input name="password" type="password" label="Password" size="lg" />
             <div className="-ml-2.5">
-              <Checkbox label="Remember Me" />
+              <Checkbox name="check" label="Remember Me" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button
+              name="submit"
+              variant="gradient"
+              fullWidth
+              onClick={handleOnClick}
+            >
               Sign In
             </Button>
             <a href={getGoogleURI()}>
