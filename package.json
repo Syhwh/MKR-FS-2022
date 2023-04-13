@@ -5,7 +5,11 @@
   "repository": "git@github.com-personal:Syhwh/MKR-FS-2022.git",
   "author": "shymmy <shymmywgarcia@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
+    "express": "^4.18.2",
     "websocket": "^1.0.34"
   }
 }
