@@ -1,0 +1,11 @@
+{
+  "name": "MKR-FS-2022",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com-personal:Syhwh/MKR-FS-2022.git",
+  "author": "shymmy <shymmywgarcia@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.34"
+  }
+}
