@@ -2,7 +2,7 @@ import "expo-router/entry";
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Link } from "expo-router";
+import { Link, Stack } from "expo-router";
 
 const BackgroundImage = require('../assets/images/background.jpg');
 
@@ -19,12 +19,25 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Text style={{ color: '#fff' }} >  Home </Text>
+            <Stack.Screen
+                options={{
+                    title: 'Home',
+                    headerStyle: {
+                        backgroundColor: '#25292e',
+                    },
+                }}
+            />
+
+            <Text style={{ color: '#fff' }} > Home </Text>
             <StatusBar style="auto" />
 
-            {/* <Link href={'/details?name=pepe&lastname=perez'} >
+            <Link href={'/details?name=pepe&lastname=perez'} >
                 Go to details
-            </Link> */}
+            </Link>
+            <Link href={'/details?name=pepe&lastname=perez'} >
+                Go to details
+            </Link>
+
             {/* <Link href={{ pathname: '/details', params: { name: 'john', lastname: 'doe' } }} >
                 Go to details
             </Link>
@@ -34,9 +47,12 @@ export default function App() {
 
             {tasks.map((task) => (
                 <Link key={task.id} href={{ pathname: `/${task.id}`, params: { ...task } }} >
-                    <Text style={{ color: '#fff' }} > {task.title} </Text>
+                    <Text style={{ }} > {task.title} </Text>
                 </Link>
             ))}
+            <Link href={{ pathname: '/users', params: { title: 'users', description: 'this is the users page' } }} >
+                <Text style={{  }} > Go to users </Text>
+            </Link>
 
         </View >
     );
@@ -45,10 +61,10 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#25292e',
+        // backgroundColor: '#25292e',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#fff',
+        // color: '#fff',
     },
 
 
