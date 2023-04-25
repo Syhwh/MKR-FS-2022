@@ -1,16 +1,17 @@
 import { useRouter, useSearchParams } from "expo-router";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-export default function details() {
+export default function users() {
     const router = useRouter();
-    const { name, lastname } = useSearchParams();
+    const { title, description } = useSearchParams();
 
     return (
         <View style={styles.container}>
-            <Text style={{ color: '#fff' }} > This is details </Text>
-            <Text style={{ color: '#fff' }} > Hello {name} {lastname} </Text>
+            <Text style={{ color: '#fff' }} > This is {title} </Text>
+            <Text style={{ color: '#fff' }} > {description} </Text>
             <Button title="Go back" onPress={() => router.back()} />
         </View >
+
     );
 }
 
