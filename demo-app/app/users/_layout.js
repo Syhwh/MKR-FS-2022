@@ -4,14 +4,12 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export default function AppLayout() {
     return (
         <Tabs>
-
             <Tabs.Screen
                 name="search"
                 options={{
                     tabBarIcon: ({ color, size }) => <FontAwesome5 name="search" size={24} color="black" />,
                 }}
             />
-
 
             <Tabs.Screen
                 // Name of the dynamic route.

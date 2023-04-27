@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Button } from "react-native";
 
 export default function details() {
     const router = useRouter();
-    const { name, lastname } = useSearchParams();
-
+    const { name, lastname, username } = useSearchParams();
+    console.log(name, username);
     return (
         <View style={styles.container}>
             <Text style={{ color: '#fff' }} > This is details </Text>

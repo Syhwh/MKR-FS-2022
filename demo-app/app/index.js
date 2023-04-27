@@ -45,13 +45,13 @@ export default function App() {
                 Go to dynamic route
             </Link> */}
 
-            {tasks.map((task) => (
+            {/* {tasks.map((task) => (
                 <Link key={task.id} href={{ pathname: `/${task.id}`, params: { ...task } }} >
                     <Text style={{ }} > {task.title} </Text>
                 </Link>
-            ))}
-            <Link href={{ pathname: '/users', params: { title: 'users', description: 'this is the users page' } }} >
-                <Text style={{  }} > Go to users </Text>
+            ))} */}
+            <Link href={{ pathname: '/login', params: { title: 'users', description: 'this is the users page' } }} >
+                <Text style={{  }} > login </Text>
             </Link>
 
         </View >
