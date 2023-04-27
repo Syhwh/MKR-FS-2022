@@ -12,6 +12,9 @@ import {
 
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from '../firebase'
 
 
 import { useForm, Controller } from 'react-hook-form';
@@ -40,9 +43,17 @@ const login = () => {
         try {
             const { email, password } = data;
             console.log({ email, password });
+            const user = await signInWithEmailAndPassword(auth, email, password)
 
-            router.push(`/details?email=${email}`);
+            console.log(user);
+            if (user) {
+
+                router.push(`/details?email=${email}`);
+            }
+
+            // router.push(`/details?email=${email}`);
         } catch (e) {
+            console.log(e);
             Alert.alert('Oops', e.message);
         }
         setLoading(false);
@@ -57,7 +68,7 @@ const login = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.root}>
 
-            <CustomInput
+                <CustomInput
                     name="email"
                     control={control}
                     placeholder="Email"

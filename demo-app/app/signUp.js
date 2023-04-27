@@ -4,6 +4,8 @@ import CustomButton from '../components/CustomButton';
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'expo-router';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const EMAIL_REGEX =
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -17,10 +19,17 @@ const SignUp = () => {
     const onRegisterPressed = async data => {
         const { username, password, email, name } = data;
         try {
-            console.log({ username, password, email, name });
 
-            router.push(`/details?username=${username}&password=${password}&email=${email}&name=${name}`);
+            const auth = getAuth();
+            const user = await createUserWithEmailAndPassword(auth, email, password);
+            console.log(user);
+            // console.log({ username, password, email, name });
+            if (user) {
+
+                router.push(`/details?username=${username}&password=${password}&email=${email}&name=${name}`);
+            }
         } catch (e) {
+            console.log(e);
             Alert.alert('Oops', e.message);
         }
     };
@@ -29,7 +38,7 @@ const SignUp = () => {
         router.push('/login');
     };
 
- 
+
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.root}>
