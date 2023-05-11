@@ -3,6 +3,8 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 
+import { ApolloServer } from '@apollo/server';
+
 import * as middlewares from './middlewares';
 import api from './api';
 import MessageResponse from './interfaces/MessageResponse';
@@ -15,6 +17,7 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
 
 app.get<{}, MessageResponse>('/', (req, res) => {
   res.json({
