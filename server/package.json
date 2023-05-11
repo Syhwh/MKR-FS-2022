@@ -11,10 +11,10 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "CJ R. <cj@null.computer> (https://w3cj.now.sh)",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/w3cj/express-api-starter.git"
+    "url": ""
   },
   "license": "MIT",
   "dependencies": {
